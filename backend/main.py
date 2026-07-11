@@ -1,12 +1,9 @@
 from fastapi import FastAPI
+from app.api.upload import router as upload_router
 
 app = FastAPI(
     title="AI Resume Analyzer",
-    version="0.2.0"
+    version="0.4.0"
 )
 
-@app.get("/")
-def root():
-    return {
-        "message": "AI Resume Analyzer API is running 🚀"
-    }
+app.include_router(upload_router)
